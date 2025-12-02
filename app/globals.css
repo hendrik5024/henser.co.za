@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base typography and accessibility */
+:root { color-scheme: light; }
+html:focus-within { scroll-behavior: smooth; }
+
+a { @apply text-brand hover:text-brand-dark; }
+button:focus-visible, a:focus-visible { @apply outline-none ring-2 ring-brand; }
+
+.skip-to-content {
+  @apply sr-only focus:not-sr-only absolute left-4 top-4 bg-white text-black p-2 rounded shadow;
+}
+
+body { @apply text-slate-800 bg-white; }

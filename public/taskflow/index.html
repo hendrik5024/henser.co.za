@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TaskFlow Manager Download</title>
+  <style>
+    body{font-family: Arial, sans-serif; padding: 2rem; background:#f7f5ff; color:#1f2937}
+    .card{background:#fff;border:1px solid #c4b5fd; border-radius:10px; padding:1.5rem; max-width:820px}
+    .btn{display:inline-block; background:#7C3AED; color:#fff; padding:.75rem 1rem; border-radius:8px; text-decoration:none; font-weight:bold}
+    .muted{color:#6b7280}
+    pre{white-space:pre-wrap}
+  </style>
+  <script>
+    // Load latest.json dynamically if served from same folder
+    fetch('latest.json').then(r=>r.json()).then(j=>{
+      document.getElementById('ver').textContent = j.version;
+      document.getElementById('dl').href = j.download_url || (j.filename || '#');
+      document.getElementById('file').textContent = j.filename;
+      document.getElementById('sha').textContent = j.sha256 || '';
+      const n = j.notes;
+      let notesText = '';
+      if (typeof n === 'string') {
+        notesText = n;
+      } else if (Array.isArray(n)) {
+        notesText = n.join('\n');
+      } else if (n && typeof n === 'object') {
+        notesText = n.value || JSON.stringify(n, null, 2);
+      }
+      document.getElementById('notes').textContent = notesText;
+      document.getElementById('pub').textContent = j.published_at || '';
+    }).catch(()=>{});
+  </script>
+  </head>
+  <body>\n    <p style="margin:1rem 0"><a href="/downloads" style="text-decoration:none">? All Downloads</a></p>\n    <div class="card">
+      <h1>TaskFlow Manager</h1>
+      <p class="muted">Version <span id="ver">-</span> · <span id="pub"></span></p>
+      <form method="post" action="/api/download?app=taskflow" style="margin:1rem 0; display:flex; gap:.5rem"><input type="password" name="password" placeholder="Password" style="flex:1; padding:.5rem; border:1px solid #c4b5fd; border-radius:6px" required /><button type="submit" class="btn">Download</button></form>
+      <p class="muted">File: <span id="file">-</span></p>
+      <p class="muted">SHA256: <code id="sha"></code></p>
+      <h3>Release notes</h3>
+      <pre id="notes"></pre>
+    </div>
+  </body>
+  </html>
+
+

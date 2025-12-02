@@ -1,0 +1,16 @@
+{
+  "lite": {
+    "version": "v0.9.0",
+    "filename": "HenSer_Accounting_Lite_v0.9.0_portable.exe",
+    "size": "~120 MB",
+    "date": "2025-12-02",
+    "sha256": "PENDING"
+  },
+  "ai": {
+    "version": "v0.9.0",
+    "filename": "HenSer_Accounting_AI_v0.9.0_portable.exe",
+    "size": "~25 GB",
+    "date": "2025-12-02",
+    "sha256": "PENDING"
+  }
+}

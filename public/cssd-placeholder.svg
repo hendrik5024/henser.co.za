@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f0f9ff"/>
+      <stop offset="100%" stop-color="#e0f2fe"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#g)"/>
+  <g fill="#0ea5e9" opacity="0.9">
+    <circle cx="300" cy="260" r="90"/>
+    <rect x="480" y="200" width="260" height="180" rx="12"/>
+    <rect x="780" y="180" width="260" height="220" rx="12"/>
+  </g>
+  <text x="60" y="590" font-size="48" font-family="Arial, Helvetica, sans-serif" fill="#0284c7" font-weight="700">
+    CSSD — placeholder image (replace with a photo later)
+  </text>
+</svg>
