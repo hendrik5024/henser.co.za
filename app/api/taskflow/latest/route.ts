@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
 
 export async function GET() {
   try {
