@@ -6,14 +6,15 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 async function loadTaskflowLatest() {
-  // Try filesystem first
+  // Try filesystem first (works in dev/build environments)
   try {
     const p = path.join(process.cwd(), "public", "taskflow", "latest.json");
     return JSON.parse(fs.readFileSync(p, "utf-8"));
   } catch {}
-  // Fallback to HTTP fetch (no cache)
+  // Fallback to absolute HTTP fetch (avoids relative URL issues on server)
   try {
-    const res = await fetch("/taskflow/latest.json", { cache: "no-store" });
+    const origin = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://www.henser.co.za";
+    const res = await fetch(`${origin}/taskflow/latest.json`, { cache: "no-store" });
     if (!res.ok) return null;
     return await res.json();
   } catch {
@@ -63,6 +64,9 @@ export default async function TaskflowDetailsPage() {
             {tf?.filename && (<p><span className="text-slate-500">File:</span> {tf.filename}</p>)}
             {sizeLabel && (<p><span className="text-slate-500">Size:</span> {sizeLabel}</p>)}
             {tf?.published_at && (<p><span className="text-slate-500">Date:</span> {tf.published_at}</p>)}
+            {!tf && (
+              <p className="text-red-600">Unable to load latest.json</p>
+            )}
           </div>
 
           <div className="mt-4">
