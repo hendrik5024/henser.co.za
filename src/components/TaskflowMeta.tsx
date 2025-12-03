@@ -24,7 +24,8 @@ export default function TaskflowMeta() {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch("/taskflow/latest.json", { cache: "no-store" });
+        const origin = typeof window !== "undefined" ? window.location.origin : "";
+        const res = await fetch(`${origin}/taskflow/latest.json`, { cache: "no-store" });
         if (!res.ok) return;
         const json = await res.json();
         setData(json);
