@@ -42,23 +42,35 @@ export default function SoftwareDevelopmentPage() {
           <h2 className="text-xl font-semibold">Recent Work</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <figure className="rounded-lg border overflow-hidden bg-white shadow-sm">
-              <img src="/screenshots/Full Accounting Software.png" alt="Full Accounting Software" className="w-full h-auto" />
+            <figure className="group rounded-lg border overflow-hidden bg-white shadow-sm transition hover:shadow-md">
+              <div className="relative">
+                <img src="/screenshots/Full Accounting Software.png" alt="Full Accounting Software" className="w-full h-auto" />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-black/10" />
+              </div>
               <figcaption className="px-3 py-2 text-sm text-slate-700">Full Accounting Software</figcaption>
             </figure>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <figure className="rounded-lg border overflow-hidden bg-white shadow-sm">
-              <img src="/screenshots/Jessica AI assistant.png" alt="Jessica AI assistant" className="w-full h-auto" />
+            <figure className="group rounded-lg border overflow-hidden bg-white shadow-sm transition hover:shadow-md">
+              <div className="relative">
+                <img src="/screenshots/Jessica AI assistant.png" alt="Jessica AI assistant" className="w-full h-auto" />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-black/10" />
+              </div>
               <figcaption className="px-3 py-2 text-sm text-slate-700">Jessica AI assistant</figcaption>
             </figure>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <figure className="rounded-lg border overflow-hidden bg-white shadow-sm">
-              <img src="/screenshots/TaskFlow Manager dark mode.png" alt="TaskFlow Manager dark mode" className="w-full h-auto" />
+            <figure className="group rounded-lg border overflow-hidden bg-white shadow-sm transition hover:shadow-md">
+              <div className="relative">
+                <img src="/screenshots/TaskFlow Manager dark mode.png" alt="TaskFlow Manager dark mode" className="w-full h-auto" />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-black/10" />
+              </div>
               <figcaption className="px-3 py-2 text-sm text-slate-700">TaskFlow Manager — dark mode</figcaption>
             </figure>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <figure className="rounded-lg border overflow-hidden bg-white shadow-sm">
-              <img src="/screenshots/TaskFlow Manager.png" alt="TaskFlow Manager" className="w-full h-auto" />
+            <figure className="group rounded-lg border overflow-hidden bg-white shadow-sm transition hover:shadow-md">
+              <div className="relative">
+                <img src="/screenshots/TaskFlow Manager.png" alt="TaskFlow Manager" className="w-full h-auto" />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-black/10" />
+              </div>
               <figcaption className="px-3 py-2 text-sm text-slate-700">TaskFlow Manager</figcaption>
             </figure>
           </div>
