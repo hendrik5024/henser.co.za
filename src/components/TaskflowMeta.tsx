@@ -43,13 +43,12 @@ export default function TaskflowMeta() {
       {tf?.filename && (<p><span className="text-slate-500">File:</span> {tf.filename}</p>)}
       {sizeLabel && (<p><span className="text-slate-500">Size:</span> {sizeLabel}</p>)}
       {tf?.published_at && (<p><span className="text-slate-500">Date:</span> {tf.published_at}</p>)}
-      {!tf && (
-        <p className="text-red-600">Unable to load latest.json</p>
+      {tf && (
+        <div className="mt-3">
+          <p className="text-slate-500 text-sm mb-1">Checksum (SHA-256)</p>
+          <code className="block p-2 bg-slate-50 border rounded text-xs break-words">{tf.sha256 || ""}</code>
+        </div>
       )}
-      <div className="mt-3">
-        <p className="text-slate-500 text-sm mb-1">Checksum (SHA-256)</p>
-        <code className="block p-2 bg-slate-50 border rounded text-xs break-words">{tf?.sha256 || ""}</code>
-      </div>
     </div>
   );
 }
