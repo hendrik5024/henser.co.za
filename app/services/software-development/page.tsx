@@ -14,10 +14,10 @@ export default function SoftwareDevelopmentPage() {
       <header className="space-y-3">
         <h1 className="text-3xl font-bold">Software Development</h1>
         <p className="text-slate-700">
-          We design and develop custom software solutions and applications tailored to streamline
-          operations, enhance efficiency, and support digital transformation. Our focus is on
-          intelligent, user-friendly systems that adapt to client needs — from process automation
-          to advanced AI integration.
+          We create custom, intelligent software solutions for both businesses and individuals.
+          Whether you need a personal tool, a specialised application, or a full AI-integrated
+          system, we design solutions that make life easier, streamline tasks, and work the way
+          <em>you</em> need them to.
         </p>
       </header>
 
