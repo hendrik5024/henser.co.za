@@ -31,6 +31,7 @@ export default function DownloadsPage() {
   const accLite = acc?.lite;
   const tf = loadTaskflowLatest();
   const tfLatest = tf?.latest || tf; // support either {latest:{...}} or flat
+  // no-op tweak to trigger redeploy and refresh caches
   // Normalize TaskFlow size: if numeric bytes, display MB
   let tfSizeLabel: string | undefined = undefined;
   if (tfLatest?.size) {
