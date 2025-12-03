@@ -5,10 +5,17 @@ import Link from "next/link";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
-function loadTaskflowLatest() {
+async function loadTaskflowLatest() {
+  // Try filesystem first
   try {
     const p = path.join(process.cwd(), "public", "taskflow", "latest.json");
     return JSON.parse(fs.readFileSync(p, "utf-8"));
+  } catch {}
+  // Fallback to HTTP fetch (no cache)
+  try {
+    const res = await fetch("/taskflow/latest.json", { cache: "no-store" });
+    if (!res.ok) return null;
+    return await res.json();
   } catch {
     return null;
   }
@@ -22,8 +29,8 @@ function humanSize(size: number | string | undefined): string | undefined {
   return size;
 }
 
-export default function TaskflowDetailsPage() {
-  const latest = loadTaskflowLatest();
+export default async function TaskflowDetailsPage() {
+  const latest = await loadTaskflowLatest();
   const tf = latest?.latest || latest;
   const sizeLabel = humanSize(tf?.size);
   return (
