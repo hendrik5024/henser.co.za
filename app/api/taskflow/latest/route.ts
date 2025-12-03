@@ -10,8 +10,8 @@ export async function GET() {
     const p = path.join(process.cwd(), "public", "taskflow", "latest.json");
     const raw = fs.readFileSync(p, "utf-8");
     const json = JSON.parse(raw);
-    return NextResponse.json(json, { status: 200 });
+    return NextResponse.json(json, { status: 200, headers: { "Cache-Control": "no-store" } });
   } catch (e) {
-    return NextResponse.json({ error: "latest.json not found" }, { status: 404 });
+    return NextResponse.json({ error: "latest.json not found" }, { status: 404, headers: { "Cache-Control": "no-store" } });
   }
 }

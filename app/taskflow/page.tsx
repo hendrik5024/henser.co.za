@@ -1,6 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import Link from "next/link";
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -13,7 +15,7 @@ async function loadTaskflowLatest() {
   } catch {}
   // Fallback to server API route (avoids origin/relative issues)
   try {
-    const res = await fetch(`/api/taskflow/latest`, { cache: "no-store" });
+    const res = await fetch(`${process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : ""}/api/taskflow/latest`, { cache: "no-store" });
     if (!res.ok) return null;
     return await res.json();
   } catch {
@@ -64,7 +66,9 @@ export default async function TaskflowDetailsPage() {
             {sizeLabel && (<p><span className="text-slate-500">Size:</span> {sizeLabel}</p>)}
             {tf?.published_at && (<p><span className="text-slate-500">Date:</span> {tf.published_at}</p>)}
             {!tf && (
-              <p className="text-red-600">Unable to load latest.json</p>
+              <div>
+                <p className="text-red-600">Unable to load latest.json</p>
+              </div>
             )}
           </div>
 
@@ -77,6 +81,12 @@ export default async function TaskflowDetailsPage() {
         <section className="rounded-lg border p-5">
           <h3 className="text-lg font-medium mb-2">Release Notes</h3>
           <pre className="text-sm whitespace-pre-wrap">{typeof tf?.notes === "string" ? tf.notes : JSON.stringify(tf?.notes, null, 2)}</pre>
+          {!tf && (
+            <div className="mt-4">
+              <h4 className="text-sm font-medium">Debug</h4>
+              <pre className="text-xs bg-slate-50 border rounded p-2">{JSON.stringify(latest, null, 2)}</pre>
+            </div>
+          )}
         </section>
       </div>
     </main>
