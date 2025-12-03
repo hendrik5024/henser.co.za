@@ -8,24 +8,18 @@ export const metadata: Metadata = {
 
 export default function SoftwareDevelopmentPage() {
   return (
-    <section className="container py-12 space-y-6">
-      <h1 className="text-3xl font-bold">Software Development</h1>
-      <p>
-        We design and develop custom software solutions and applications tailored to streamline
-        operations, enhance efficiency, and support digital transformation. Our focus is on
-        intelligent, user-friendly systems that adapt to client needs — from process automation
-        to advanced AI integration.
-      </p>
+    <section className="container py-12 space-y-8">
+      <header className="space-y-3">
+        <h1 className="text-3xl font-bold">Software Development</h1>
+        <p className="text-slate-700">
+          We design and develop custom software solutions and applications tailored to streamline
+          operations, enhance efficiency, and support digital transformation. Our focus is on
+          intelligent, user-friendly systems that adapt to client needs — from process automation
+          to advanced AI integration.
+        </p>
+      </header>
 
-      <div className="grid gap-6 md:grid-cols-2 items-start">
-        <div className="rounded border p-4 bg-white">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/software-dev-placeholder.svg"
-            alt="Software development placeholder"
-            className="w-full h-auto"
-          />
-        </div>
+      <div className="grid gap-6 md:grid-cols-2">
         <div className="space-y-4">
           <h2 className="text-xl font-semibold">Expertise</h2>
           <ul className="list-disc pl-6 space-y-2">
@@ -41,6 +35,34 @@ export default function SoftwareDevelopmentPage() {
           >
             Discuss your project
           </a>
+        </div>
+
+        {/* Showcase gallery */}
+        <div className="space-y-4">
+          <h2 className="text-xl font-semibold">Recent Work</h2>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <figure className="rounded-lg border overflow-hidden bg-white shadow-sm">
+              <img src="/screenshots/Full Accounting Software.png" alt="Full Accounting Software" className="w-full h-auto" />
+              <figcaption className="px-3 py-2 text-sm text-slate-700">Full Accounting Software</figcaption>
+            </figure>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <figure className="rounded-lg border overflow-hidden bg-white shadow-sm">
+              <img src="/screenshots/Jessica AI assistant.png" alt="Jessica AI assistant" className="w-full h-auto" />
+              <figcaption className="px-3 py-2 text-sm text-slate-700">Jessica AI assistant</figcaption>
+            </figure>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <figure className="rounded-lg border overflow-hidden bg-white shadow-sm">
+              <img src="/screenshots/TaskFlow Manager dark mode.png" alt="TaskFlow Manager dark mode" className="w-full h-auto" />
+              <figcaption className="px-3 py-2 text-sm text-slate-700">TaskFlow Manager — dark mode</figcaption>
+            </figure>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <figure className="rounded-lg border overflow-hidden bg-white shadow-sm">
+              <img src="/screenshots/TaskFlow Manager.png" alt="TaskFlow Manager" className="w-full h-auto" />
+              <figcaption className="px-3 py-2 text-sm text-slate-700">TaskFlow Manager</figcaption>
+            </figure>
+          </div>
+          <p className="text-xs text-slate-500">Images are for illustration; actual interfaces may vary.</p>
         </div>
       </div>
     </section>
