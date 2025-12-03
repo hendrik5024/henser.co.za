@@ -13,10 +13,11 @@ function loadAccountingLatest() {
   }
 }
 
-function loadTaskflowLatest() {
+async function fetchTaskflowLatest() {
   try {
-    const p = path.join(process.cwd(), "public", "taskflow", "latest.json");
-    return JSON.parse(fs.readFileSync(p, "utf-8"));
+    const res = await fetch("/taskflow/latest.json", { cache: "no-store" });
+    if (!res.ok) return null;
+    return await res.json();
   } catch {
     return null;
   }
@@ -28,10 +29,10 @@ export const metadata = {
   description: "Get the latest versions of HenSer apps.",
 };
 
-export default function DownloadsPage() {
+export default async function DownloadsPage() {
   const acc = loadAccountingLatest();
   const accLite = acc?.lite;
-  const tf = loadTaskflowLatest();
+  const tf = await fetchTaskflowLatest();
   const tfLatest = tf?.latest || tf; // support either {latest:{...}} or flat
   // no-op tweak to trigger redeploy and refresh caches
   // Normalize TaskFlow size: if numeric bytes, display MB
