@@ -11,10 +11,9 @@ async function loadTaskflowLatest() {
     const p = path.join(process.cwd(), "public", "taskflow", "latest.json");
     return JSON.parse(fs.readFileSync(p, "utf-8"));
   } catch {}
-  // Fallback to absolute HTTP fetch (avoids relative URL issues on server)
+  // Fallback to server API route (avoids origin/relative issues)
   try {
-    const origin = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://www.henser.co.za";
-    const res = await fetch(`${origin}/taskflow/latest.json`, { cache: "no-store" });
+    const res = await fetch(`/api/taskflow/latest`, { cache: "no-store" });
     if (!res.ok) return null;
     return await res.json();
   } catch {
