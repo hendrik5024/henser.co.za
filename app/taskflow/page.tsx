@@ -5,9 +5,6 @@ import TaskflowMeta from "@/components/TaskflowMeta";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
-
 async function loadTaskflowLatest() {
   // Try filesystem first (works in dev/build environments)
   try {
