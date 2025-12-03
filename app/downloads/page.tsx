@@ -31,6 +31,16 @@ export default function DownloadsPage() {
   const accLite = acc?.lite;
   const tf = loadTaskflowLatest();
   const tfLatest = tf?.latest || tf; // support either {latest:{...}} or flat
+  // Normalize TaskFlow size: if numeric bytes, display MB
+  let tfSizeLabel: string | undefined = undefined;
+  if (tfLatest?.size) {
+    if (typeof tfLatest.size === 'number') {
+      const mb = (tfLatest.size / (1024 * 1024)).toFixed(1);
+      tfSizeLabel = `${mb} MB`;
+    } else if (typeof tfLatest.size === 'string') {
+      tfSizeLabel = tfLatest.size;
+    }
+  }
   return (
     <main className="container py-10">
       <h1 className="text-3xl font-semibold mb-6">Downloads</h1>
@@ -51,8 +61,8 @@ export default function DownloadsPage() {
                 )}
               </div>
               <p className="text-slate-600">Portable build with in-app update checks.</p>
-              {tfLatest?.size && (
-                <p className="text-slate-500 text-xs mt-1">Size: {tfLatest.size}</p>
+              {tfSizeLabel && (
+                <p className="text-slate-500 text-xs mt-1">Size: {tfSizeLabel}</p>
               )}
             </div>
             <Link className="text-sm underline text-slate-600" href="/taskflow/">Details</Link>
