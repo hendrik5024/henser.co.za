@@ -18,6 +18,17 @@
       document.getElementById('dl').href = j.download_url || (j.filename || '#');
       document.getElementById('file').textContent = j.filename;
       document.getElementById('sha').textContent = j.sha256 || '';
+      // Normalize size: numeric bytes -> MB label
+      var sizeEl = document.getElementById('size');
+      if (sizeEl) {
+        var lbl = '';
+        if (typeof j.size === 'number') {
+          lbl = (j.size / (1024*1024)).toFixed(1) + ' MB';
+        } else if (typeof j.size === 'string') {
+          lbl = j.size;
+        }
+        sizeEl.textContent = lbl;
+      }
       const n = j.notes;
       let notesText = '';
       if (typeof n === 'string') {
@@ -36,7 +47,7 @@
       <h1>TaskFlow Manager</h1>
       <p class="muted">Version <span id="ver">-</span> · <span id="pub"></span></p>
       <form method="post" action="/api/download?app=taskflow" style="margin:1rem 0; display:flex; gap:.5rem"><input type="password" name="password" placeholder="Password" style="flex:1; padding:.5rem; border:1px solid #c4b5fd; border-radius:6px" required /><button type="submit" class="btn">Download</button></form>
-      <p class="muted">File: <span id="file">-</span></p>
+      <p class="muted">File: <span id="file">-</span> · Size: <span id="size"></span></p>
       <p class="muted">SHA256: <code id="sha"></code></p>
       <h3>Release notes</h3>
       <pre id="notes"></pre>
