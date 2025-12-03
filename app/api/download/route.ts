@@ -32,11 +32,17 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
-  // Map app -> file URL (currently public path; consider moving to blob for true protection)
+  // Prefer env-based URLs for flexibility; fallback to public paths
   const fileMap: Record<string, string> = {
-    taskflow: "/taskflow/TaskFlow_Manager_win_portable_noarchive_2025.12.01.1.zip",
-    "accounting:lite": "/accounting/HenSer_Accounting_Lite_v0.9.0_portable.exe",
-    "accounting:ai": "/accounting/HenSer_Accounting_AI_v0.9.0_portable.exe",
+    taskflow:
+      process.env.TASKFLOW_URL || 
+      "/taskflow/TaskFlow_Manager_win_portable_noarchive_2025.12.01.1.zip",
+    "accounting:lite":
+      process.env.ACCOUNTING_LITE_URL || 
+      "/accounting/HenSer_Accounting_Lite_v0.9.0_portable.exe",
+    "accounting:ai":
+      process.env.ACCOUNTING_AI_URL || 
+      "/accounting/HenSer_Accounting_AI_v0.9.0_portable.exe",
   };
   const key = app === "accounting" && variant ? `${app}:${variant}` : app;
   const target = fileMap[key];
