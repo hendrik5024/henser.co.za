@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import Link from "next/link";
+import TaskflowMeta from "@/components/TaskflowMeta";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
@@ -60,33 +61,15 @@ export default async function TaskflowDetailsPage() {
             <button type="submit" className="inline-block bg-indigo-600 hover:bg-indigo-700 transition text-white px-4 py-2 rounded font-medium">Download</button>
           </form>
 
-          <div className="mt-4 text-sm text-slate-700 space-y-1">
-            {tf?.version && (<p><span className="text-slate-500">Version:</span> {tf.version}</p>)}
-            {tf?.filename && (<p><span className="text-slate-500">File:</span> {tf.filename}</p>)}
-            {sizeLabel && (<p><span className="text-slate-500">Size:</span> {sizeLabel}</p>)}
-            {tf?.published_at && (<p><span className="text-slate-500">Date:</span> {tf.published_at}</p>)}
-            {!tf && (
-              <div>
-                <p className="text-red-600">Unable to load latest.json</p>
-              </div>
-            )}
-          </div>
+          <TaskflowMeta />
 
-          <div className="mt-4">
-            <p className="text-slate-500 text-sm mb-1">Checksum (SHA-256)</p>
-            <code className="block p-2 bg-slate-50 border rounded text-xs break-words">{tf?.sha256 || ""}</code>
-          </div>
+          {/* checksum rendered in TaskflowMeta */}
         </section>
 
         <section className="rounded-lg border p-5">
           <h3 className="text-lg font-medium mb-2">Release Notes</h3>
           <pre className="text-sm whitespace-pre-wrap">{typeof tf?.notes === "string" ? tf.notes : JSON.stringify(tf?.notes, null, 2)}</pre>
-          {!tf && (
-            <div className="mt-4">
-              <h4 className="text-sm font-medium">Debug</h4>
-              <pre className="text-xs bg-slate-50 border rounded p-2">{JSON.stringify(latest, null, 2)}</pre>
-            </div>
-          )}
+          {/* debug block removed once client meta loads */}
         </section>
       </div>
     </main>
