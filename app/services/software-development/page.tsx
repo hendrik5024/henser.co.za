@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Software Development | HenSer Innovations",
@@ -41,34 +42,30 @@ export default function SoftwareDevelopmentPage() {
         <div className="space-y-4">
           <h2 className="text-xl font-semibold">Recent Work</h2>
           <div className="grid sm:grid-cols-2 gap-4">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <figure className="group rounded-lg border overflow-hidden bg-white shadow-sm transition hover:shadow-md">
-              <div className="relative">
-                <img src="/screenshots/Full Accounting Software.png" alt="Full Accounting Software" className="w-full h-auto" />
+              <div className="relative w-full" style={{ aspectRatio: "16/9" }}>
+                <Image src="/screenshots/Full Accounting Software.png" alt="Full Accounting Software" fill className="object-cover" priority />
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-black/10" />
               </div>
               <figcaption className="px-3 py-2 text-sm text-slate-700">Full Accounting Software</figcaption>
             </figure>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <figure className="group rounded-lg border overflow-hidden bg-white shadow-sm transition hover:shadow-md">
-              <div className="relative">
-                <img src="/screenshots/Jessica AI assistant.png" alt="Jessica AI assistant" className="w-full h-auto" />
+              <div className="relative w-full" style={{ aspectRatio: "16/9" }}>
+                <Image src="/screenshots/Jessica AI assistant.png" alt="Jessica AI assistant" fill className="object-cover" />
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-black/10" />
               </div>
               <figcaption className="px-3 py-2 text-sm text-slate-700">Jessica AI assistant</figcaption>
             </figure>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <figure className="group rounded-lg border overflow-hidden bg-white shadow-sm transition hover:shadow-md">
-              <div className="relative">
-                <img src="/screenshots/TaskFlow Manager dark mode.png" alt="TaskFlow Manager dark mode" className="w-full h-auto" />
+              <div className="relative w-full" style={{ aspectRatio: "16/9" }}>
+                <Image src="/screenshots/TaskFlow Manager dark mode.png" alt="TaskFlow Manager dark mode" fill className="object-cover" />
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-black/10" />
               </div>
               <figcaption className="px-3 py-2 text-sm text-slate-700">TaskFlow Manager — dark mode</figcaption>
             </figure>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <figure className="group rounded-lg border overflow-hidden bg-white shadow-sm transition hover:shadow-md">
-              <div className="relative">
-                <img src="/screenshots/TaskFlow Manager.png" alt="TaskFlow Manager" className="w-full h-auto" />
+              <div className="relative w-full" style={{ aspectRatio: "16/9" }}>
+                <Image src="/screenshots/TaskFlow Manager.png" alt="TaskFlow Manager" fill className="object-cover" />
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-black/10" />
               </div>
               <figcaption className="px-3 py-2 text-sm text-slate-700">TaskFlow Manager</figcaption>
