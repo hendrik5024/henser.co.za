@@ -7,13 +7,13 @@ export default function AboutPage() {
         in intelligent, custom-built solutions that transform the way businesses operate.
       </p>
       <p>
-        We don''t just write code  we engineer experiences. Our mission is to bridge the 
+        We don&apos;t just write code — we engineer experiences. Our mission is to bridge the 
         gap between complex business challenges and elegant technological solutions through 
         innovation, precision, and cutting-edge AI integration.
       </p>
       <p>
         What sets us apart is our commitment to understanding your unique needs and 
-        delivering software that doesn''t just meet requirements, but exceeds expectations. 
+        delivering software that doesn&apos;t just meet requirements, but exceeds expectations. 
         From process automation to advanced AI-powered systems, we create tools that adapt, 
         scale, and evolve with your business.
       </p>
@@ -38,7 +38,7 @@ export default function AboutPage() {
         </li>
       </ul>
       <p className="mt-6">
-        Whether you''re looking to automate workflows, harness data insights, or build 
+        Whether you&apos;re looking to automate workflows, harness data insights, or build 
         entirely new digital platforms, HenSer Innovations is your partner in digital 
         transformation.
       </p>

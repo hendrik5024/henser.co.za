@@ -13,7 +13,7 @@ export default function RecentWorkPage() {
         <h1 className="text-3xl font-bold">Recent Work</h1>
         <p className="text-slate-700">
           Explore our portfolio of completed projects, showcasing a wide range of software
-          solutions, AI applications, and business tools we've developed for our clients.
+          solutions, AI applications, and business tools we&apos;ve developed for our clients.
         </p>
       </header>
 
