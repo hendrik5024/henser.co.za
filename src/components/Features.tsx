@@ -1,52 +1,88 @@
 import Link from "next/link";
 
 export default function Features() {
-  const items = [
-    {
-      title: "Cleanroom",
-      icon: "/icons/cleanroom.svg",
-      iconAlt: "Cleanroom icon",
-      desc:
-        "Our state-of-the-art cleanroom facility is designed to meet the highest ISO standards for sterile manufacturing. We specialize in custom-made surgical and medical procedure packs, tailored to each client’s specifications. Precision, compliance, and quality assurance are at the core of every product we prepare",
-      href: "/services/cleanroom",
-    },
-    {
-      title: "CSSD",
-      icon: "/icons/cssd.svg",
-      iconAlt: "Sterilization/CSSD icon",
-      desc:
-        "We supply a comprehensive range of consumables, instruments, and equipment for all Central Sterile Services Department (CSSD) requirements. Our offering includes professional training programs designed in accordance with international sterilization and decontamination standards (such as ISO 13485 and HTM 01-01), ensuring best practices, safety, and compliance across all reprocessing areas",
-      href: "/services/cssd",
-    },
-    {
-      title: "Software Development",
-      icon: "/icons/software.svg",
-      iconAlt: "Software development icon",
-      desc:
-        "We design and develop custom software solutions and applications tailored to streamline operations, enhance efficiency, and support digital transformation. Our focus is on intelligent, user-friendly systems that adapt to client needs — from process automation to advanced AI integration",
-      href: "/services/software-development",
-    },
-  ];
   return (
-    <section className="container py-12 grid gap-6 md:grid-cols-3">
-      {items.map((item) => (
-        <div key={item.title} className="rounded border p-6">
-          {item.icon && (
-            // Using <img> intentionally for simple inline SVGs in public/
-            // eslint-disable-next-line @next/next/no-img-element
-            <img src={item.icon} alt={item.iconAlt} className="h-10 w-10 mb-3" />
-          )}
-          <h3 className="font-semibold text-lg">{item.title}</h3>
-          <p className="text-slate-600 mt-2">{item.desc}</p>
-          {item.href && (
-            <div className="mt-3">
-              <Link href={item.href} className="text-brand hover:text-brand-dark underline">
-                Learn more
-              </Link>
+    <section className="container py-12 space-y-8">
+      <header className="space-y-3">
+        <h1 className="text-3xl font-bold">Software Development</h1>
+        <p className="text-slate-700">
+          We create custom, intelligent software solutions for both businesses and individuals.
+          Whether you need a personal tool, a specialised application, or a full AI-integrated
+          system, we design solutions that make life easier, streamline tasks, and work the way
+          <em>you</em> need them to.
+        </p>
+      </header>
+
+      <div className="grid gap-6 md:grid-cols-2">
+        <div className="space-y-4">
+          <h2 className="text-xl font-semibold">My Areas of Expertise</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <h3 className="font-medium">AI Engineering</h3>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Building personalized offline AI systems</li>
+                <li>Multi-model (dual LLM) intelligent assistants</li>
+                <li>Reasoning, planning & memory-driven AI</li>
+                <li>Voice, vision & cognitive automation</li>
+              </ul>
             </div>
-          )}
+            <div>
+              <h3 className="font-medium">Software Development</h3>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Python development from concept to deployment</li>
+                <li>Full desktop applications with AI integration</li>
+                <li>Automation tools that simplify daily operations</li>
+                <li>Secure, standalone business utilities</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-medium">Business Solutions</h3>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Custom ERP & accounting software</li>
+                <li>Warehouse, logistics & workflow automation</li>
+                <li>Data reporting, analysis & dashboard tools</li>
+                <li>AI consulting to optimise business performance</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-medium">Technology Services</h3>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Website design & deployment</li>
+                <li>Domain setup & hosting management</li>
+                <li>Coding support, debugging & system enhancements</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="flex gap-3">
+            <a
+              href="/contact"
+              className="inline-block rounded bg-brand px-5 py-3 text-white hover:bg-brand-dark"
+            >
+              Discuss your project
+            </a>
+            <Link
+              href="/recent-work"
+              className="inline-block rounded border-2 border-brand px-5 py-3 text-brand hover:bg-brand hover:text-white transition"
+            >
+              See Recent Work
+            </Link>
+          </div>
         </div>
-      ))}
+
+        <div className="space-y-4 flex flex-col justify-center">
+          <h2 className="text-xl font-semibold">Recent Work</h2>
+          <p className="text-slate-700">
+            Explore our portfolio of completed projects, including accounting software, AI assistants, task management tools, and more.
+          </p>
+          <Link
+            href="/recent-work"
+            className="inline-block rounded bg-brand px-5 py-3 text-white hover:bg-brand-dark text-center"
+          >
+            View All Projects
+          </Link>
+        </div>
+      </div>
     </section>
   );
 }
