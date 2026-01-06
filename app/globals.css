@@ -6,7 +6,7 @@
 :root { color-scheme: light; }
 html:focus-within { scroll-behavior: smooth; }
 
-a { @apply text-brand hover:text-brand-dark; }
+a { @apply text-brand hover:text-brand-dark transition-colors; }
 button:focus-visible, a:focus-visible { @apply outline-none ring-2 ring-brand; }
 
 .skip-to-content {
@@ -14,3 +14,36 @@ button:focus-visible, a:focus-visible { @apply outline-none ring-2 ring-brand; }
 }
 
 body { @apply text-slate-800 bg-white; }
+
+/* Custom animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out forwards;
+}
+
+.animate-fade-in-delay {
+  animation: fade-in 0.8s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-delay-2 {
+  animation: fade-in 0.8s ease-out 0.4s forwards;
+  opacity: 0;
+}
+
+/* Grid pattern */
+.bg-grid-slate-100 {
+  background-image: linear-gradient(to right, rgb(241 245 249 / 0.5) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(241 245 249 / 0.5) 1px, transparent 1px);
+  background-size: 4rem 4rem;
+}
