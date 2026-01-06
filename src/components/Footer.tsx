@@ -7,7 +7,7 @@ export default function Footer() {
           <a href="#" aria-label="Facebook" className="hover:underline">
             Facebook
           </a>
-          <a href="#" aria-label="LinkedIn" className="hover:underline">
+          <a href="https://www.linkedin.com/company/henser-innovations" aria-label="LinkedIn" className="hover:underline" target="_blank" rel="noopener noreferrer">
             LinkedIn
           </a>
           <a href="#" aria-label="X" className="hover:underline">
